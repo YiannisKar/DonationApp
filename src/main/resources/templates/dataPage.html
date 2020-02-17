@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h1>DATABASE</h1>
+<div class="form">
+    <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Amount</th>
+        <th>Currency</th>
+    </tr>
+    </thead>
+        <tbody>
+    <tr th:each="donation : ${donationList}">
+        <td th:text="${donation.id}">Id</td>
+        <td th:text="${donation.name}">Name</td>
+        <td th:text="${donation.surname}">Surname</td>
+        <td th:text="${donation.amount}">Amount</td>
+        <td th:text="${donation.currency}">Currency</td>
+    </tr>
+    </tbody>
+
+</table>
+</div>
+<button type="button" class="mt-4" ><a href="@{/createPDF}">Export Data</a></button>
+
+</body>
+</html>
